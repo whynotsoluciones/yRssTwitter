@@ -1,4 +1,3 @@
-
 <div id="yRssTwitter" class="span-2 last">
     <div class="yRssTwitter-header">
         <div class="yRssTwitter-header-left" style="<?php echo $logoStyle; ?>">

@@ -130,7 +130,7 @@ Content
         'color' => 'black',
         'linkColor' => 'green',
         'linkHoverColor' => 'red',
-    )); 
+    ); 
 
     $this->widget('application.components.widgets.yRssTwitter.YRssTwitter', $config);
 

@@ -1,37 +1,18 @@
 <?php
-
-/* SVN FILE: $Id: WeatherForecast.php 15 2009-10-18 10:14:07Z Chris $ */
-
 /**
- * Weather Forecast widget
+ * yRssTwitter widget
  *
- * Parses data from a weather forecast provider and creates a view.
- *
- * Three weather forecast providers are supported by default:
- * BBC (Note: the API is not published so the symbolMap is almost certainly incomplete)
- * Google (Note: the API is not published so the symbolMap is almost certainly incomplete)
- * Yahoo (Note: Yahoo data is provided by the Weather Channel)
- *
- * Adding a new provider by writing the {provider}Weather class and
- * placing the {provider}Weather.php file in the providers directory.
- *
- * Cacheing is supported to reduce bandwidth requirements.
- * Cacheing is for provider::location; this means that if you have multiple forecasts
- * for different locations and/or from different providers each is cached.
+ * Parses data from the Rss feed of a twitter timeline a shows it nicely
  *
  * @filesource
- * @copyright    Copyright 2009 PBM Web Development - All Rights Reserved
- * @package      weatherForecast
- * @since        V1.0.0
- * @version      $Revision: 15 $
- * @modifiedby   $LastChangedBy: Chris $
- * @lastmodified $Date: 2009-10-18 11:14:07 +0100 (Sun, 18 Oct 2009) $
- * @license      http://www.opensource.org/licenses/bsd-license.php The BSD License
+ * @copyright    Copyright 2012 Why Not Soluciones, S.L. - All Rights Reserved
+ * @package      yRssTwitter
+ * @license      http://opensource.org/licenses/BSD-3-Clause The BSD 3-Clause License
  */
 class YRssTwitter extends CWidget {
 
     /**
-     * @var array Parameters for yRssTwitter
+     * @var Parameters for yRssTwitter
      */
     public $rss;
     public $display = true;
@@ -46,18 +27,13 @@ class YRssTwitter extends CWidget {
     public $linkColor = '#361d27';
     public $linkHoverColor = '#FF6319';
     public $twitterActions = array('reply'=>'responder', 'favorite'=>'favorito');
+
     /**
-     * @var string Path of CSS file to use
+     * @var string Path of CSS file and image file to use
      */
     public $cssFile;
     public $imageFile;
 
-    /**
-     * @var string Path of directory containing symbols to use.
-     * Set to false if the provider provides symbols to be used
-     */
-    public $symbolsDir;
-    
     function timeFromPublish($tm, $rcs = 0) {
         $cur_tm = time();
         $dif = $cur_tm - $tm;
@@ -119,7 +95,7 @@ class YRssTwitter extends CWidget {
 
         $source = 'https://twitter.com/statuses/user_timeline/' . $username . '.rss';
         
-        $xml = simplexml_load_file($source);
+        $xml = @simplexml_load_file($source);
         for ($n = 0; $n < $this->tweetsToDisplay; $n++) {
             $description = $xml->channel->item[$n]->description;
 
@@ -145,9 +121,6 @@ class YRssTwitter extends CWidget {
     
     /**
      * Initialises the widget
-     *
-     * Registers the CSS file and sets the required forecast provider,
-     * loading it if required
      */
     public function init() {
         
