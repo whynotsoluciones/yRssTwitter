@@ -92,8 +92,7 @@ class YRssTwitter extends CWidget {
 
     private function getTwitterRss($username, $locales) {
 
-
-        $source = 'https://twitter.com/statuses/user_timeline/' . $username . '.rss';
+        $source = 'https://api.twitter.com/1/statuses/user_timeline.rss?screen_name=' . $username;
         
         $xml = @simplexml_load_file($source);
         for ($n = 0; $n < $this->tweetsToDisplay; $n++) {
