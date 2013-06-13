@@ -11,11 +11,11 @@
         </div>
     </div>
 <?php 
-    foreach($rss as $key=>$entry) { ?>
+    foreach($feed as $key=>$entry) { ?>
 
-    <div class="yRssTwitter-entry <?php echo ($key == count($rss)-1) ? 'yRssTwitter-entry-last' : '' ?>">
+    <div class="yRssTwitter-entry <?php echo ($key == count($feed)-1) ? 'yRssTwitter-entry-last' : '' ?>">
         <p>
-            <?php echo $entry["description"]; ?>
+            <?php echo ' '.  $entry["description"]; ?>
         </p>
         <span class="yRssTwitter-span">
             <a target="_blank" href="<?php echo $entry['guid']; ?>"><?php echo $entry['date']; ?></a>
@@ -38,3 +38,4 @@
         &nbsp;
     </div>
 </div>
+
