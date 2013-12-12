@@ -17,8 +17,8 @@ class YRssTwitter extends CWidget {
      */
     public $feed;
     public $display = true;
-    public $displayName = 'Why Not Soluciones';
-    public $twitterUser = 'ynotsoluciones';
+    public $displayName = 'Your name';
+    public $twitterUser = 'yourusername';
     public $locales = array("es_ES.UTF-8", "es_ES@euro", "es_ES", "esp");
     public $timeNames = array('segundo', 'minuto', 'hora', 'día', 'semana', 'mes', 'año', 'decada');
     public $tweetsToDisplay = 5;
@@ -116,10 +116,10 @@ class YRssTwitter extends CWidget {
         $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 
         //TODO: add config params for this values
-        $oauth_access_token = "243581526-PYL8xcVQO5yvH5JhkQEq6HWGoK91LGIvrZhIst92";
-        $oauth_access_token_secret = "jTccUfKNjD2cN9LoKJXfPXmPOPYOMRNvMrnVqmJvXU";
-        $consumer_key = "7OhsnWsThIvoGg5jRbHqA";
-        $consumer_secret = "J1AeHQlwwTQJq8wNeJ3X4LDtvxnCJT8kBSD4q0bGPek";
+        $oauth_access_token = "";
+        $oauth_access_token_secret = "";
+        $consumer_key = "";
+        $consumer_secret = "";
 
         $oauth = array('oauth_consumer_key' => $consumer_key,
             'oauth_nonce' => time(),
