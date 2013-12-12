@@ -29,6 +29,7 @@ Content
     - Integrates with minscript [2] in order to minify the CSS scripts.
     - Lightweight internationalization setup
     - Easy color config to fit your Yii application
+    - Timeline caching
 
 2. REQUIREMENTS
 
@@ -113,7 +114,12 @@ Content
         Type: string
         Allowed values: css compliant colors
         Default value: #FF6319
-        Color used for the hover selector for the links of the widget 
+        Color used for the hover selector for the links of the widget
+
+    - cachetime
+        Type: integer
+        Default value: 2
+        Tweet caching time in hours
 
 5. USAGE
 
@@ -130,6 +136,7 @@ Content
         'color' => 'black',
         'linkColor' => 'green',
         'linkHoverColor' => 'red',
+        'cachetime' => 2,
     ); 
 
     $this->widget('application.components.widgets.yRssTwitter.YRssTwitter', $config);
